@@ -196,7 +196,8 @@ HRESULT CVCamStream::FillBuffer(IMediaSample *pms)
     }
 
 	for(int i = 0; i < pms->GetSize(); i++) {
-		  pData[i] = rand() % 256; // fill with random...
+		  pData[i] = rand() % 256; // fill with random "white noise" ...
+		  // we could put a sin wave in there I suppose (the synth sample has some sin wave code)...
     }
 
 	WAVEFORMATEX* pwfexCurrent = (WAVEFORMATEX*)m_mt.Format();

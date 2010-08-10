@@ -92,7 +92,7 @@
   <ItemGroup>
     <ClCompile Include="loopback-capture-helpers.cpp" />
     <ClCompile Include="loopback-capture.cpp" />
-    <ClCompile Include="vcam_main.cpp">
+    <ClCompile Include="virt_audio_all.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
