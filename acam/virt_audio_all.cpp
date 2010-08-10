@@ -489,7 +489,7 @@ HRESULT STDMETHODCALLTYPE CVCamStream::GetStreamCaps(int iIndex, AM_MEDIA_TYPE *
     pm->formattype = FORMAT_WaveFormatEx;
     pm->bTemporalCompression = FALSE;
     pm->bFixedSizeSamples = TRUE;
-    pm->lSampleSize = pAudioFormat->nAvgBytesPerSec/2; // 0.5s
+    pm->lSampleSize = pAudioFormat->nBlockAlign;//appears reasonable http://github.com/tap/JamomaDSP/blob/2c80c487c6e560d959dd85e7d2bcca3a19ce9b26/src/os/win/DX/BaseClasses/mtype.cpp
     pm->cbFormat = sizeof(WAVEFORMATEX);
 	pm->pUnk = NULL;
 
