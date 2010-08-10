@@ -1,0 +1,15 @@
+This repository has an actual working directshow audio input source filter.
+
+Simplified examples like this were pretty hard to find online, and not even the MSDN SDK examples seemed to have any audio source examples.
+
+This one works as an audio input source, in VLC, and in graphedit, etc.
+
+I took out all the threading constructs so that you can more easily tell what is going on.
+
+It advertises and streams a single, 44100 khz "white noise" (well, randomly generated signal).
+
+To see the code, open "virtual audio output replay.sln"
+
+For further exploration, I would *now* recommend the directshow sample "synth" though it is much more complex, though I believe that one cannot be used with VLC since it is "dynamic" and doesn't have GetScreenCaps, though I could be wrong about that.
+Enjoy.
+-r
