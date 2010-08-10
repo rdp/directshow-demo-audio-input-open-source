@@ -147,9 +147,10 @@ CVCamStream::CVCamStream(HRESULT *phr, CVCam *pParent, LPCWSTR pPinName) :
     CSourceStream(NAME("Virtual Cam4"),phr, pParent, pPinName), m_pParent(pParent)
 {
 
-    // Set the media type...
     m_fFirstSampleDelivered = FALSE;
     m_llSampleMediaTimeStart = 0;
+    // Set the default media type...
+	// it doesn't actually *have* to do this hear...
     GetMediaType(0, &m_mt);
 
 }
