@@ -4,7 +4,10 @@
 // it's actually an audio source
 // the code in here includes the .h file and the dll main methods.
 
-// dllmain.cpp : Defines the entry point for the DLL application.
+// it was derived from various sources
+// mostly from http://tmhare.mvps.org/downloads.htm "capture source filter"
+// and a few random examples on the internet
+
 #include "stdafx.h"
 #include <olectl.h>
 
@@ -14,7 +17,6 @@
 //  We do not use the inbuilt BaseClasses routines as we need to register as
 //  a capture source
 //////////////////////////////////////////////////////////////////////////
-
 
 #include <streams.h>
 #include <initguid.h>
