@@ -11,7 +11,7 @@ It advertises and streams a single, 44100 khz "white noise" (well, randomly gene
 To see the code, open "virtual audio output replay.sln"
 
 For further exploration, I would recommend the directshow sample "synth" which shows you how to setup a dynamic source, and is more complex.
-I believe that synth cannot be used with VLC since it is "dynamic" and doesn't have GetScreenCaps, though I could be wrong about that.
+I believe that synth cannot be used with VLC since it is "dynamic" and doesn't have GetStreamCaps, though I could be wrong about that.
 
 Enjoy.
 Questions welcome, use github messaging.
