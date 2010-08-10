@@ -8,6 +8,11 @@
 // mostly from http://tmhare.mvps.org/downloads.htm "capture source filter"
 // and a few random examples on the internet
 
+// to use it as is, pre-built, go to Release directory, run
+// regsvr32 acam.dll (it could have been named acam.ax, but I left it at dll and seems to work fine)
+// it will now appears as an audio capture source in your apps that use directshow (like VLC) as "Virtual cam4"
+// it produces random static currently, but shows you how to do so.
+
 #include "stdafx.h"
 #include <olectl.h>
 
@@ -205,7 +210,7 @@ HRESULT CVCamStream::FillBuffer(IMediaSample *pms)
     // Set the sample's start and end time stamps...
     CRefTime rtStart = m_rtSampleTime;
 
-	// add a few seconds to the clock...
+	// add time to the clock...
     m_rtSampleTime = rtStart + (REFERENCE_TIME)(UNITS * pms->GetActualDataLength()) / 
                      (REFERENCE_TIME)pwfexCurrent->nAvgBytesPerSec;
 
@@ -253,7 +258,7 @@ HRESULT CVCamStream::FillBuffer(IMediaSample *pms)
 
     m_llSampleMediaTimeStart = llMediaTimeStop;
     m_fFirstSampleDelivered = TRUE;
-	Sleep(2); // VLC goes crazy if we give it too much data too fast...sleep 2ms...
+	Sleep(2); // VLC goes crazy if we give it too much data too fast...so sleep 2ms...
     return NOERROR;
 } // FillBuffer
 
@@ -397,7 +402,7 @@ HRESULT CVCamStream::DecideBufferSize(IMemAllocator *pAlloc,
         return hr;
     }
 
-    // Is this allocator unsuitable
+    // Is this allocator unsuitable ?
 
     if(Actual.cbBuffer < pProperties->cbBuffer)
     {
@@ -413,7 +418,6 @@ HRESULT CVCamStream::OnThreadCreate()
 {
     m_fFirstSampleDelivered = FALSE;
     m_llSampleMediaTimeStart = 0;
-    GetMediaType(0, &m_mt);
     return NOERROR;
 } // OnThreadCreate
 
