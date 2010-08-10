@@ -1,3 +1,9 @@
+// this is where all the code is
+// for the demo audio app
+// currently named "virtual cam4"
+// it's actually an audio source
+// the code in here includes the .h file and the dll main methods.
+
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "stdafx.h"
 #include <olectl.h>
