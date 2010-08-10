@@ -15,4 +15,7 @@ I believe that synth cannot be used with VLC since it is "dynamic" and doesn't h
 
 Enjoy.
 Questions welcome, use github messaging.
+
+There are some other side-projects in other sub-folders within this project.  You can probably safely ignore them, stick with "virtual audio output replay.sln" and "acam/*"  
+
 -r
