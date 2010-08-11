@@ -5,7 +5,7 @@
 // the code in here includes the .h file and the dll main methods.
 
 // it was derived from various sources
-// mostly from http://tmhare.mvps.org/downloads.htm "capture source filter"
+// mostly from http://tmhare.mvps.org/downloads.htm "capture source filter" (which, BTW is an excellent "virtual video cam" demo, whereas this is audio)
 // and a few random examples on the internet
 
 // to use it as is, pre-built, go to Release directory, run
