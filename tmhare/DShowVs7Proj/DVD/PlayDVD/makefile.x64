@@ -1,0 +1,390 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on PlayDVD.dsp
+!IF "$(CFG)" == ""
+CFG=PlayDVD - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to PlayDVD - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "PlayDVD - Win64 Release" && "$(CFG)" != "PlayDVD - Win64 Debug" && "$(CFG)" != "PlayDVD - Win64 Release Unicode" && "$(CFG)" != "PlayDVD - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "PlayDVD.mak" CFG="PlayDVD - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "PlayDVD - Win64 Release" (based on "Win64 (X64) Application")
+!MESSAGE "PlayDVD - Win64 Debug" (based on "Win64 (X64) Application")
+!MESSAGE "PlayDVD - Win64 Release Unicode" (based on "Win64 (X64) Application")
+!MESSAGE "PlayDVD - Win64 Debug Unicode" (based on "Win64 (X64) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "PlayDVD - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDVD.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DVDHelper.obj"
+	-@erase "$(INTDIR)\dvdoptions.obj"
+	-@erase "$(INTDIR)\PlayDVD.obj"
+	-@erase "$(INTDIR)\PlayDVD.res"
+	-@erase "$(INTDIR)\PlayUtil.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\PlayDVD.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "WIN64" /D "NDEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\PlayDVD.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDVD.res" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDVD.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\release\strmbase.lib winspool.lib shell32.lib odbc32.lib odbccp32.lib quartz.lib msvcrt.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib winmm.lib msacm32.lib olepro32.lib oleaut32.lib advapi32.lib uuid.lib strmiids.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\PlayDVD.pdb" /machine:X64 /nodefaultlib /out:"$(OUTDIR)\PlayDVD.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DVDHelper.obj" \
+	"$(INTDIR)\dvdoptions.obj" \
+	"$(INTDIR)\PlayDVD.obj" \
+	"$(INTDIR)\PlayUtil.obj" \
+	"$(INTDIR)\PlayDVD.res"
+
+"$(OUTDIR)\PlayDVD.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "PlayDVD - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDVD.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DVDHelper.obj"
+	-@erase "$(INTDIR)\dvdoptions.obj"
+	-@erase "$(INTDIR)\PlayDVD.obj"
+	-@erase "$(INTDIR)\PlayDVD.res"
+	-@erase "$(INTDIR)\PlayUtil.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\PlayDVD.exe"
+	-@erase "$(OUTDIR)\PlayDVD.ilk"
+	-@erase "$(OUTDIR)\PlayDVD.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "WIN64" /D "_DEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\PlayDVD.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDVD.res" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDVD.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\debug\strmbasd.lib quartz.lib msvcrtd.lib winmm.lib msacm32.lib olepro32.lib strmiids.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib oleaut32.lib advapi32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\PlayDVD.pdb" /debug /machine:X64 /nodefaultlib /out:"$(OUTDIR)\PlayDVD.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DVDHelper.obj" \
+	"$(INTDIR)\dvdoptions.obj" \
+	"$(INTDIR)\PlayDVD.obj" \
+	"$(INTDIR)\PlayUtil.obj" \
+	"$(INTDIR)\PlayDVD.res"
+
+"$(OUTDIR)\PlayDVD.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "PlayDVD - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDVD.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DVDHelper.obj"
+	-@erase "$(INTDIR)\dvdoptions.obj"
+	-@erase "$(INTDIR)\PlayDVD.obj"
+	-@erase "$(INTDIR)\PlayDVD.res"
+	-@erase "$(INTDIR)\PlayUtil.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\PlayDVD.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "NDEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\PlayDVD.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDVD.res" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDVD.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\release_unicode\strmbase.lib winspool.lib shell32.lib odbc32.lib odbccp32.lib quartz.lib msvcrt.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib winmm.lib msacm32.lib olepro32.lib oleaut32.lib advapi32.lib uuid.lib strmiids.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\PlayDVD.pdb" /machine:X64 /nodefaultlib /out:"$(OUTDIR)\PlayDVD.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DVDHelper.obj" \
+	"$(INTDIR)\dvdoptions.obj" \
+	"$(INTDIR)\PlayDVD.obj" \
+	"$(INTDIR)\PlayUtil.obj" \
+	"$(INTDIR)\PlayDVD.res"
+
+"$(OUTDIR)\PlayDVD.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "PlayDVD - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDVD.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DVDHelper.obj"
+	-@erase "$(INTDIR)\dvdoptions.obj"
+	-@erase "$(INTDIR)\PlayDVD.obj"
+	-@erase "$(INTDIR)\PlayDVD.res"
+	-@erase "$(INTDIR)\PlayUtil.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\PlayDVD.exe"
+	-@erase "$(OUTDIR)\PlayDVD.ilk"
+	-@erase "$(OUTDIR)\PlayDVD.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "_DEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\PlayDVD.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDVD.res" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDVD.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\debug_unicode\strmbasd.lib quartz.lib msvcrtd.lib winmm.lib msacm32.lib olepro32.lib strmiids.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib oleaut32.lib advapi32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\PlayDVD.pdb" /debug /machine:X64 /nodefaultlib /out:"$(OUTDIR)\PlayDVD.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DVDHelper.obj" \
+	"$(INTDIR)\dvdoptions.obj" \
+	"$(INTDIR)\PlayDVD.obj" \
+	"$(INTDIR)\PlayUtil.obj" \
+	"$(INTDIR)\PlayDVD.res"
+
+"$(OUTDIR)\PlayDVD.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("PlayDVD.dep")
+!INCLUDE "PlayDVD.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "PlayDVD.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "PlayDVD - Win64 Release" || "$(CFG)" == "PlayDVD - Win64 Debug" || "$(CFG)" == "PlayDVD - Win64 Release Unicode" || "$(CFG)" == "PlayDVD - Win64 Debug Unicode"
+SOURCE=.\DVDHelper.cpp
+
+"$(INTDIR)\DVDHelper.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\dvdoptions.cpp
+
+"$(INTDIR)\dvdoptions.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\PlayDVD.cpp
+
+"$(INTDIR)\PlayDVD.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\PlayUtil.cpp
+
+"$(INTDIR)\PlayUtil.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\PlayDVD.rc
+
+"$(INTDIR)\PlayDVD.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+
+

@@ -1,0 +1,370 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on ball.dsp
+!IF "$(CFG)" == ""
+CFG=ball - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to ball - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "ball - Win64 Release" && "$(CFG)" != "ball - Win64 Debug" && "$(CFG)" != "ball - Win64 Release Unicode" && "$(CFG)" != "ball - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "ball.mak" CFG="ball - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "ball - Win64 Release" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE "ball - Win64 Debug" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE "ball - Win64 Release Unicode" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE "ball - Win64 Debug Unicode" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "ball - Win64 Release"
+
+OUTDIR=.
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.
+# End Custom Macros
+
+ALL : "$(OUTDIR)\Release\ball.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ball.obj"
+	-@erase "$(INTDIR)\ball.res"
+	-@erase "$(INTDIR)\fball.obj"
+	-@erase "$(OUTDIR)\ball.exp"
+	-@erase "$(OUTDIR)\ball.lib"
+	-@erase "$(OUTDIR)\Release\ball.ax"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MD /W4 /Gy /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D DBG=0 /D WINVER=0x400 /D "INC_OLE2" /D "STRICT" /D "WIN64" /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /Fp"$(INTDIR)\ball.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Oxs /GF /D_WIN32_WINNT=0x0400 /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\ball.res" /i "..\..\BaseClasses" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\ball.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\release\strmbase.lib msvcrt.lib quartz.lib vfw32.lib winmm.lib kernel32.lib advapi32.lib version.lib user32.lib gdi32.lib comctl32.lib ole32.lib olepro32.lib oleaut32.lib uuid.lib /nologo /stack:0x200000,0x200000 /dll /pdb:none /machine:X64 /nodefaultlib /def:".\ball.def" /out:"$(OUTDIR)\Release\ball.ax" /implib:"$(OUTDIR)\ball.lib" /libpath:"..\..\..\..\lib\X64" /subsystem:windows,4.0 /opt:ref /release /debug:none /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\ball.obj" \
+	"$(INTDIR)\fball.obj" \
+	"$(INTDIR)\ball.res"
+
+"$(OUTDIR)\Release\ball.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "ball - Win64 Debug"
+
+OUTDIR=.
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.
+# End Custom Macros
+
+ALL : "$(OUTDIR)\Debug\ball.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ball.obj"
+	-@erase "$(INTDIR)\ball.res"
+	-@erase "$(INTDIR)\fball.obj"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\ball.exp"
+	-@erase "$(OUTDIR)\ball.lib"
+	-@erase "$(OUTDIR)\Debug\ball.ax"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MDd /W4 /Zi /Od /Gy /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D _WIN32_WINNT=0x0400 /D WINVER=0x0400 /D DBG=1 /D "DEBUG" /D "_DEBUG" /D "INC_OLE2" /D "STRICT" /D "WIN64" /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /Fp"$(INTDIR)\ball.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Oid /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\ball.res" /i "..\..\BaseClasses" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\ball.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\debug\strmbasd.lib msvcrtd.lib quartz.lib vfw32.lib winmm.lib kernel32.lib advapi32.lib version.lib user32.lib gdi32.lib comctl32.lib ole32.lib olepro32.lib oleaut32.lib uuid.lib /nologo /stack:0x200000,0x200000 /dll /pdb:none /debug /machine:X64 /nodefaultlib /def:".\ball.def" /out:"$(OUTDIR)\Debug\ball.ax" /implib:"$(OUTDIR)\ball.lib" /libpath:"..\..\..\..\lib\X64"/subsystem:windows,4.0 /ignore:4089 /ignore:4078 
+DEF_FILE= \
+	".\ball.def"
+LINK32_OBJS= \
+	"$(INTDIR)\ball.obj" \
+	"$(INTDIR)\fball.obj" \
+	"$(INTDIR)\ball.res"
+
+"$(OUTDIR)\Debug\ball.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "ball - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\ball.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ball.obj"
+	-@erase "$(INTDIR)\ball.res"
+	-@erase "$(INTDIR)\fball.obj"
+	-@erase "$(OUTDIR)\ball.ax"
+	-@erase "$(OUTDIR)\ball.exp"
+	-@erase "$(OUTDIR)\ball.lib"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MD /W4 /Gy /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D DBG=0 /D WINVER=0x400 /D "INC_OLE2" /D "STRICT" /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\ball.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Oxs /GF /D_WIN32_WINNT=0x0400 /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\ball.res" /i "..\..\BaseClasses" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\ball.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\release_unicode\strmbase.lib msvcrt.lib quartz.lib vfw32.lib winmm.lib kernel32.lib advapi32.lib version.lib user32.lib gdi32.lib comctl32.lib ole32.lib olepro32.lib oleaut32.lib uuid.lib /nologo /stack:0x200000,0x200000 /dll /pdb:none /machine:X64 /nodefaultlib /def:".\ball.def" /out:"$(OUTDIR)\ball.ax" /implib:"$(OUTDIR)\ball.lib" /libpath:"..\..\..\..\lib\X64" /subsystem:windows,4.0 /opt:ref /release /debug:none /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+DEF_FILE= \
+	".\ball.def"
+LINK32_OBJS= \
+	"$(INTDIR)\ball.obj" \
+	"$(INTDIR)\fball.obj" \
+	"$(INTDIR)\ball.res"
+
+"$(OUTDIR)\ball.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "ball - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\ball.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ball.obj"
+	-@erase "$(INTDIR)\ball.res"
+	-@erase "$(INTDIR)\fball.obj"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\ball.ax"
+	-@erase "$(OUTDIR)\ball.exp"
+	-@erase "$(OUTDIR)\ball.lib"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MDd /W4 /Zi /Od /Gy /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D _WIN32_WINNT=0x0400 /D WINVER=0x0400 /D DBG=1 /D "DEBUG" /D "_DEBUG" /D "INC_OLE2" /D "STRICT" /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\ball.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Oid /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\ball.res" /i "..\..\BaseClasses" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\ball.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\debug_unicode\strmbasd.lib msvcrtd.lib quartz.lib vfw32.lib winmm.lib kernel32.lib advapi32.lib version.lib user32.lib gdi32.lib comctl32.lib ole32.lib olepro32.lib oleaut32.lib uuid.lib /nologo /stack:0x200000,0x200000 /dll /pdb:none /debug /machine:X64 /nodefaultlib /def:".\ball.def" /out:"$(OUTDIR)\ball.ax" /implib:"$(OUTDIR)\ball.lib" /libpath:"..\..\..\..\lib\X64" /subsystem:windows,4.0 /ignore:4089 /ignore:4078 
+DEF_FILE= \
+	".\ball.def"
+LINK32_OBJS= \
+	"$(INTDIR)\ball.obj" \
+	"$(INTDIR)\fball.obj" \
+	"$(INTDIR)\ball.res"
+
+"$(OUTDIR)\ball.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("ball.dep")
+!INCLUDE "ball.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "ball.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "ball - Win64 Release" || "$(CFG)" == "ball - Win64 Debug" || "$(CFG)" == "ball - Win64 Release Unicode" || "$(CFG)" == "ball - Win64 Debug Unicode"
+SOURCE=.\ball.cpp
+
+"$(INTDIR)\ball.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\ball.rc
+
+"$(INTDIR)\ball.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+SOURCE=.\fball.cpp
+
+"$(INTDIR)\fball.obj" : $(SOURCE) "$(INTDIR)"
+
+
+
+!ENDIF 
+
+

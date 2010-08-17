@@ -1,0 +1,446 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on VMRXclBasic.dsp
+!IF "$(CFG)" == ""
+CFG=VMRXclBasic - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to VMRXclBasic - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "VMRXclBasic - Win64 Release" && "$(CFG)" != "VMRXclBasic - Win64 Debug" && "$(CFG)" != "VMRXclBasic - Win64 Release Unicode" && "$(CFG)" != "VMRXclBasic - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "VMRXclBasic.mak" CFG="VMRXclBasic - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "VMRXclBasic - Win64 Release" (based on "Win64 (X64) Application")
+!MESSAGE "VMRXclBasic - Win64 Debug" (based on "Win64 (X64) Application")
+!MESSAGE "VMRXclBasic - Win64 Release Unicode" (based on "Win64 (X64) Application")
+!MESSAGE "VMRXclBasic - Win64 Debug Unicode" (based on "Win64 (X64) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "VMRXclBasic - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\VMRXclBasic.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DShowUtils.obj"
+	-@erase "$(INTDIR)\Helpers.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\VmrGlobals.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.pch"
+	-@erase "$(INTDIR)\VMRXclBasic.res"
+	-@erase "$(OUTDIR)\VMRXclBasic.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\inc" /D "_WINDOWS" /D "WIN64" /D "NDEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\VMRXclBasic.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\VMRXclBasic.res" /d "NDEBUG" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\VMRXclBasic.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=strmiids.lib ddraw.lib dxguid.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\VMRXclBasic.pdb" /machine:X64 /out:"$(OUTDIR)\VMRXclBasic.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DShowUtils.obj" \
+	"$(INTDIR)\Helpers.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\VmrGlobals.obj" \
+	"$(INTDIR)\VMRXclBasic.obj" \
+	"$(INTDIR)\VMRXclBasic.res"
+
+"$(OUTDIR)\VMRXclBasic.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "VMRXclBasic - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\VMRXclBasic.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DShowUtils.obj"
+	-@erase "$(INTDIR)\Helpers.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\VmrGlobals.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.pch"
+	-@erase "$(INTDIR)\VMRXclBasic.res"
+	-@erase "$(OUTDIR)\VMRXclBasic.exe"
+	-@erase "$(OUTDIR)\VMRXclBasic.ilk"
+	-@erase "$(OUTDIR)\VMRXclBasic.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /ZI /Od /I "..\inc" /D "_WINDOWS" /D "WIN64" /D "_DEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\VMRXclBasic.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\VMRXclBasic.res" /d "_DEBUG" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\VMRXclBasic.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=strmiids.lib ddraw.lib dxguid.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\VMRXclBasic.pdb" /debug /machine:X64 /out:"$(OUTDIR)\VMRXclBasic.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DShowUtils.obj" \
+	"$(INTDIR)\Helpers.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\VmrGlobals.obj" \
+	"$(INTDIR)\VMRXclBasic.obj" \
+	"$(INTDIR)\VMRXclBasic.res"
+
+"$(OUTDIR)\VMRXclBasic.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "VMRXclBasic - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\VMRXclBasic.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DShowUtils.obj"
+	-@erase "$(INTDIR)\Helpers.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\VmrGlobals.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.pch"
+	-@erase "$(INTDIR)\VMRXclBasic.res"
+	-@erase "$(OUTDIR)\VMRXclBasic.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\inc" /D "_WINDOWS" /D "NDEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\VMRXclBasic.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\VMRXclBasic.res" /d "NDEBUG" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\VMRXclBasic.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=strmiids.lib ddraw.lib dxguid.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\VMRXclBasic.pdb" /machine:X64 /out:"$(OUTDIR)\VMRXclBasic.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DShowUtils.obj" \
+	"$(INTDIR)\Helpers.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\VmrGlobals.obj" \
+	"$(INTDIR)\VMRXclBasic.obj" \
+	"$(INTDIR)\VMRXclBasic.res"
+
+"$(OUTDIR)\VMRXclBasic.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "VMRXclBasic - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\VMRXclBasic.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\DShowUtils.obj"
+	-@erase "$(INTDIR)\Helpers.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\VmrGlobals.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.obj"
+	-@erase "$(INTDIR)\VMRXclBasic.pch"
+	-@erase "$(INTDIR)\VMRXclBasic.res"
+	-@erase "$(OUTDIR)\VMRXclBasic.exe"
+	-@erase "$(OUTDIR)\VMRXclBasic.ilk"
+	-@erase "$(OUTDIR)\VMRXclBasic.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /ZI /Od /I "..\inc" /D "_WINDOWS" /D "_DEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\VMRXclBasic.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\VMRXclBasic.res" /d "_DEBUG" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\VMRXclBasic.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=strmiids.lib ddraw.lib dxguid.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\VMRXclBasic.pdb" /debug /machine:X64 /out:"$(OUTDIR)\VMRXclBasic.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\DShowUtils.obj" \
+	"$(INTDIR)\Helpers.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\VmrGlobals.obj" \
+	"$(INTDIR)\VMRXclBasic.obj" \
+	"$(INTDIR)\VMRXclBasic.res"
+
+"$(OUTDIR)\VMRXclBasic.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("VMRXclBasic.dep")
+!INCLUDE "VMRXclBasic.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "VMRXclBasic.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "VMRXclBasic - Win64 Release" || "$(CFG)" == "VMRXclBasic - Win64 Debug" || "$(CFG)" == "VMRXclBasic - Win64 Release Unicode" || "$(CFG)" == "VMRXclBasic - Win64 Debug Unicode"
+SOURCE=.\DShowUtils.cpp
+
+"$(INTDIR)\DShowUtils.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\VMRXclBasic.pch"
+
+
+SOURCE=.\Helpers.cpp
+
+"$(INTDIR)\Helpers.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\VMRXclBasic.pch"
+
+
+SOURCE=.\StdAfx.cpp
+
+!IF  "$(CFG)" == "VMRXclBasic - Win64 Release"
+
+CPP_SWITCHES=/nologo /MT /W4 /GX /O2 /I "..\inc" /D "_WINDOWS" /D "WIN64" /D "NDEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\VMRXclBasic.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\VMRXclBasic.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "VMRXclBasic - Win64 Debug"
+
+CPP_SWITCHES=/nologo /MTd /W4 /Gm /GX /ZI /Od /I "..\inc" /D "_WINDOWS" /D "WIN64" /D "_DEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\VMRXclBasic.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\VMRXclBasic.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "VMRXclBasic - Win64 Release Unicode"
+
+CPP_SWITCHES=/nologo /MT /W4 /GX /O2 /I "..\inc" /D "_WINDOWS" /D "NDEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\VMRXclBasic.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\VMRXclBasic.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "VMRXclBasic - Win64 Debug Unicode"
+
+CPP_SWITCHES=/nologo /MTd /W4 /Gm /GX /ZI /Od /I "..\inc" /D "_WINDOWS" /D "_DEBUG" /D "_MBCS" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\VMRXclBasic.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\VMRXclBasic.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\VmrGlobals.cpp
+
+"$(INTDIR)\VmrGlobals.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\VMRXclBasic.pch"
+
+
+SOURCE=.\VMRXclBasic.cpp
+
+"$(INTDIR)\VMRXclBasic.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\VMRXclBasic.pch"
+
+
+SOURCE=.\VMRXclBasic.rc
+
+"$(INTDIR)\VMRXclBasic.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+
+

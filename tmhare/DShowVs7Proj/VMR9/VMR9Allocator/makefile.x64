@@ -1,0 +1,433 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on vmr9allocator.dsp
+!IF "$(CFG)" == ""
+CFG=VMR9Allocator - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to vmr9allocator - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "VMR9Allocator - Win64 Release" && "$(CFG)" != "VMR9Allocator - Win64 Debug" && "$(CFG)" != "VMR9Allocator - Win64 Release Unicode" && "$(CFG)" != "VMR9Allocator - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "vmr9allocator.mak" CFG="vmr9allocator - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "VMR9Allocator - Win64 Release" (based on "Win64 (X64) Application")
+!MESSAGE "VMR9Allocator - Win64 Debug" (based on "Win64 (X64) Application")
+!MESSAGE "VMR9Allocator - Win64 Release Unicode" (based on "Win64 (X64) Application")
+!MESSAGE "VMR9Allocator - Win64 Debug Unicode" (based on "Win64 (X64) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "VMR9Allocator - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\vmr9allocator.exe" "$(OUTDIR)\vmr9allocator.pch"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\Allocator.obj"
+	-@erase "$(INTDIR)\PlaneScene.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vmr9allocator.obj"
+	-@erase "$(INTDIR)\vmr9allocator.pch"
+	-@erase "$(INTDIR)\vmr9allocator.res"
+	-@erase "$(OUTDIR)\vmr9allocator.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /YX"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\vmr9allocator.res" /d "NDEBUG" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\vmr9allocator.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\Release\strmbase.lib strmiids.lib d3d9.lib d3dx9.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\vmr9allocator.pdb" /machine:X64 /out:"$(OUTDIR)\vmr9allocator.exe" /libpath:"..\..\..\..\..\lib\X64" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\Allocator.obj" \
+	"$(INTDIR)\PlaneScene.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\vmr9allocator.obj" \
+	"$(INTDIR)\vmr9allocator.res"
+
+"$(OUTDIR)\vmr9allocator.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "VMR9Allocator - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\vmr9allocator.exe" "$(OUTDIR)\vmr9allocator.pch"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\Allocator.obj"
+	-@erase "$(INTDIR)\PlaneScene.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vmr9allocator.obj"
+	-@erase "$(INTDIR)\vmr9allocator.pch"
+	-@erase "$(INTDIR)\vmr9allocator.res"
+	-@erase "$(OUTDIR)\vmr9allocator.exe"
+	-@erase "$(OUTDIR)\vmr9allocator.ilk"
+	-@erase "$(OUTDIR)\vmr9allocator.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /YX"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\vmr9allocator.res" /d "_DEBUG" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\vmr9allocator.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\Debug\strmbasd.lib strmiids.lib d3d9.lib d3dx9.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\vmr9allocator.pdb" /debug /machine:X64 /out:"$(OUTDIR)\vmr9allocator.exe" /pdbtype:sept /libpath:"..\..\..\..\..\lib\X64" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\Allocator.obj" \
+	"$(INTDIR)\PlaneScene.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\vmr9allocator.obj" \
+	"$(INTDIR)\vmr9allocator.res"
+
+"$(OUTDIR)\vmr9allocator.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "VMR9Allocator - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\vmr9allocator.exe" "$(OUTDIR)\vmr9allocator.pch"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\Allocator.obj"
+	-@erase "$(INTDIR)\PlaneScene.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vmr9allocator.obj"
+	-@erase "$(INTDIR)\vmr9allocator.pch"
+	-@erase "$(INTDIR)\vmr9allocator.res"
+	-@erase "$(OUTDIR)\vmr9allocator.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "UNICODE" /D "_UNICODE" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /YX"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\vmr9allocator.res" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\vmr9allocator.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\Release_Unicode\strmbase.lib strmiids.lib d3d9.lib d3dx9.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\vmr9allocator.pdb" /machine:X64 /out:"$(OUTDIR)\vmr9allocator.exe" /libpath:"..\..\..\..\..\lib\X64" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\Allocator.obj" \
+	"$(INTDIR)\PlaneScene.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\vmr9allocator.obj" \
+	"$(INTDIR)\vmr9allocator.res"
+
+"$(OUTDIR)\vmr9allocator.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "VMR9Allocator - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\vmr9allocator.exe" "$(OUTDIR)\vmr9allocator.pch"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\Allocator.obj"
+	-@erase "$(INTDIR)\PlaneScene.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vmr9allocator.obj"
+	-@erase "$(INTDIR)\vmr9allocator.pch"
+	-@erase "$(INTDIR)\vmr9allocator.res"
+	-@erase "$(OUTDIR)\vmr9allocator.exe"
+	-@erase "$(OUTDIR)\vmr9allocator.ilk"
+	-@erase "$(OUTDIR)\vmr9allocator.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "UNICODE" /D "_UNICODE" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /YX"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\vmr9allocator.res" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\vmr9allocator.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\Debug_Unicode\strmbasd.lib strmiids.lib d3d9.lib d3dx9.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\vmr9allocator.pdb" /debug /machine:X64 /out:"$(OUTDIR)\vmr9allocator.exe" /pdbtype:sept /libpath:"..\..\..\..\..\lib\X64" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\Allocator.obj" \
+	"$(INTDIR)\PlaneScene.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\vmr9allocator.obj" \
+	"$(INTDIR)\vmr9allocator.res"
+
+"$(OUTDIR)\vmr9allocator.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("vmr9allocator.dep")
+!INCLUDE "vmr9allocator.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "vmr9allocator.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "VMR9Allocator - Win64 Release" || "$(CFG)" == "VMR9Allocator - Win64 Debug" || "$(CFG)" == "VMR9Allocator - Win64 Release Unicode" || "$(CFG)" == "VMR9Allocator - Win64 Debug Unicode"
+SOURCE=.\Allocator.cpp
+
+"$(INTDIR)\Allocator.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\PlaneScene.cpp
+
+"$(INTDIR)\PlaneScene.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\StdAfx.cpp
+
+!IF  "$(CFG)" == "VMR9Allocator - Win64 Release"
+
+CPP_SWITCHES=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\vmr9allocator.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "VMR9Allocator - Win64 Debug"
+
+CPP_SWITCHES=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\vmr9allocator.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "VMR9Allocator - Win64 Release Unicode"
+
+CPP_SWITCHES=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "UNICODE" /D "_UNICODE" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\vmr9allocator.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "VMR9Allocator - Win64 Debug Unicode"
+
+CPP_SWITCHES=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /I "..\inc" /D "WIN64" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "UNICODE" /D "_UNICODE" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\vmr9allocator.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\vmr9allocator.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\vmr9allocator.cpp
+
+"$(INTDIR)\vmr9allocator.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\vmr9allocator.rc
+
+"$(INTDIR)\vmr9allocator.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+
+

@@ -1,0 +1,357 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on asyncflt.dsp
+!IF "$(CFG)" == ""
+CFG=async - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to async - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "async - Win64 Release" && "$(CFG)" != "async - Win64 Debug" && "$(CFG)" != "async - Win64 Release Unicode" && "$(CFG)" != "async - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "asyncflt.mak" CFG="async - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "async - Win64 Release" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE "async - Win64 Debug" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE "async - Win64 Release Unicode" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE "async - Win64 Debug Unicode" (based on "Win64 (X64) Dynamic-Link Library")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "async - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\asyncflt.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\asyncflt.obj"
+	-@erase "$(INTDIR)\asyncflt.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\asyncflt.ax"
+	-@erase "$(OUTDIR)\asyncflt.exp"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MD /W4 /GX /O2 /I "..\..\..\BaseClasses" /I "..\..\..\..\..\..\include" /I "..\include" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "ASYNC_EXPORTS" /D "INC_OLE2" /D "STRICT" /D _WIN32_WINNT=0x0400 /D "WIN64" /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /D WINVER=0x0400 /Fp"$(INTDIR)\asyncflt.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\asyncflt.res" /i "..\..\..\BaseClasses" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\asyncflt.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\base\release\asynbase.lib ..\..\..\BaseClasses\release\strmbase.lib quartz.lib uuid.lib winmm.lib msvcrt.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib /nologo /stack:0x200000,0x200000 /dll /incremental:no /pdb:"$(OUTDIR)\asyncflt.pdb" /machine:X64 /nodefaultlib /def:".\asyncflt.def" /out:"$(OUTDIR)\asyncflt.ax" /implib:"$(OUTDIR)\asyncflt.lib" /libpath:"..\..\..\..\lib\X64" /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\asyncflt.obj" \
+	"$(INTDIR)\asyncflt.res"
+
+"$(OUTDIR)\asyncflt.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "async - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\asyncflt.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\asyncflt.obj"
+	-@erase "$(INTDIR)\asyncflt.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\asyncflt.ax"
+	-@erase "$(OUTDIR)\asyncflt.exp"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MDd /W4 /Zi /Od /I "..\..\..\BaseClasses" /I "..\..\..\..\..\..\include" /I "..\include" /D "INC_OLE2" /D "STRICT" /D _WIN32_WINNT=0x0400 /D "WIN64" /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /D WINVER=0x0400 /D DBG=1 /D "DEBUG" /D "_DEBUG" /Fp"$(INTDIR)\asyncflt.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\asyncflt.res" /i "..\..\..\BaseClasses" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\asyncflt.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\..\BaseClasses\debug\strmbasd.lib ..\base\debug\asynbase.lib quartz.lib uuid.lib winmm.lib msvcrtd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib /nologo /stack:0x200000,0x200000 /dll /pdb:none /debug /machine:X64 /nodefaultlib /def:".\asyncflt.def" /out:"$(OUTDIR)\asyncflt.ax" /implib:"$(OUTDIR)\asyncflt.lib" /libpath:"..\..\..\..\lib\X64" /ignore:4089 /ignore:4078 
+DEF_FILE= \
+	".\asyncflt.def"
+LINK32_OBJS= \
+	"$(INTDIR)\asyncflt.obj" \
+	"$(INTDIR)\asyncflt.res"
+
+"$(OUTDIR)\asyncflt.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "async - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\asyncflt.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\asyncflt.obj"
+	-@erase "$(INTDIR)\asyncflt.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\asyncflt.ax"
+	-@erase "$(OUTDIR)\asyncflt.exp"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MD /W4 /GX /O2 /I "..\..\..\BaseClasses" /I "..\..\..\..\..\..\include" /I "..\include" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "ASYNC_EXPORTS" /D "INC_OLE2" /D "STRICT" /D _WIN32_WINNT=0x0400 /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /D WINVER=0x0400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\asyncflt.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\asyncflt.res" /i "..\..\..\BaseClasses" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\asyncflt.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\..\BaseClasses\release_unicode\strmbase.lib ..\base\release_unicode\asynbase.lib quartz.lib uuid.lib winmm.lib msvcrt.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib /nologo /stack:0x200000,0x200000 /dll /incremental:no /pdb:"$(OUTDIR)\asyncflt.pdb" /machine:X64 /nodefaultlib /def:".\asyncflt.def" /out:"$(OUTDIR)\asyncflt.ax" /implib:"$(OUTDIR)\asyncflt.lib" /libpath:"..\..\..\..\lib\X64" /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+DEF_FILE= \
+	".\asyncflt.def"
+LINK32_OBJS= \
+	"$(INTDIR)\asyncflt.obj" \
+	"$(INTDIR)\asyncflt.res"
+
+"$(OUTDIR)\asyncflt.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "async - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\asyncflt.ax"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\asyncflt.obj"
+	-@erase "$(INTDIR)\asyncflt.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\asyncflt.ax"
+	-@erase "$(OUTDIR)\asyncflt.exp"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /Gz /MDd /W4 /Zi /Od /I "..\..\..\BaseClasses" /I "..\..\..\..\..\..\include" /I "..\include" /D "INC_OLE2" /D "STRICT" /D _WIN32_WINNT=0x0400 /D "_WIN64" /D "_MT" /D "_DLL" /D _X64_=1 /D WINVER=0x0400 /D DBG=1 /D "DEBUG" /D "_DEBUG" /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\asyncflt.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\asyncflt.res" /i "..\..\..\BaseClasses" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\asyncflt.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\..\BaseClasses\debug_unicode\strmbasd.lib ..\base\debug_unicode\asynbase.lib quartz.lib uuid.lib winmm.lib msvcrtd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib /nologo /stack:0x200000,0x200000 /dll /pdb:none /debug /machine:X64 /nodefaultlib /def:".\asyncflt.def" /out:"$(OUTDIR)\asyncflt.ax" /implib:"$(OUTDIR)\asyncflt.lib" /libpath:"..\..\..\..\lib\X64" /ignore:4089 /ignore:4078 
+DEF_FILE= \
+	".\asyncflt.def"
+LINK32_OBJS= \
+	"$(INTDIR)\asyncflt.obj" \
+	"$(INTDIR)\asyncflt.res"
+
+"$(OUTDIR)\asyncflt.ax" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("asyncflt.dep")
+!INCLUDE "asyncflt.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "asyncflt.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "async - Win64 Release" || "$(CFG)" == "async - Win64 Debug" || "$(CFG)" == "async - Win64 Release Unicode" || "$(CFG)" == "async - Win64 Debug Unicode"
+SOURCE=.\asyncflt.cpp
+
+"$(INTDIR)\asyncflt.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\asyncflt.rc
+
+"$(INTDIR)\asyncflt.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+
+

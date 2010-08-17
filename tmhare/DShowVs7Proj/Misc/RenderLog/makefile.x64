@@ -1,0 +1,351 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on RenderLog.dsp
+!IF "$(CFG)" == ""
+CFG=RenderLog - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to RenderLog - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "RenderLog - Win64 Release" && "$(CFG)" != "RenderLog - Win64 Debug" && "$(CFG)" != "RenderLog - Win64 Release Unicode" && "$(CFG)" != "RenderLog - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "RenderLog.mak" CFG="RenderLog - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "RenderLog - Win64 Release" (based on "Win64 (X64) Application")
+!MESSAGE "RenderLog - Win64 Debug" (based on "Win64 (X64) Application")
+!MESSAGE "RenderLog - Win64 Release Unicode" (based on "Win64 (X64) Application")
+!MESSAGE "RenderLog - Win64 Debug Unicode" (based on "Win64 (X64) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "RenderLog - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\RenderLog.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\RenderLog.obj"
+	-@erase "$(INTDIR)\RenderLog.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\RenderLog.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "WIN64" /D "NDEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\RenderLog.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\RenderLog.res" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\RenderLog.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=winspool.lib shell32.lib odbc32.lib odbccp32.lib msvcrt.lib dxerr9.lib quartz.lib winmm.lib msacm32.lib olepro32.lib strmiids.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib oleaut32.lib advapi32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\RenderLog.pdb" /machine:X64 /nodefaultlib /out:"$(OUTDIR)\RenderLog.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\RenderLog.obj" \
+	"$(INTDIR)\RenderLog.res"
+
+"$(OUTDIR)\RenderLog.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "RenderLog - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\RenderLog.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\RenderLog.obj"
+	-@erase "$(INTDIR)\RenderLog.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\RenderLog.exe"
+	-@erase "$(OUTDIR)\RenderLog.ilk"
+	-@erase "$(OUTDIR)\RenderLog.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "WIN64" /D "_DEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\RenderLog.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\RenderLog.res" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\RenderLog.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=msvcrtd.lib dxerr9.lib quartz.lib winmm.lib msacm32.lib olepro32.lib strmiids.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib oleaut32.lib advapi32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\RenderLog.pdb" /debug /machine:X64 /nodefaultlib /out:"$(OUTDIR)\RenderLog.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\RenderLog.obj" \
+	"$(INTDIR)\RenderLog.res"
+
+"$(OUTDIR)\RenderLog.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "RenderLog - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\RenderLog.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\RenderLog.obj"
+	-@erase "$(INTDIR)\RenderLog.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\RenderLog.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "NDEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\RenderLog.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\RenderLog.res" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\RenderLog.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=winspool.lib shell32.lib odbc32.lib odbccp32.lib msvcrt.lib dxerr9.lib quartz.lib winmm.lib msacm32.lib olepro32.lib strmiids.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib oleaut32.lib advapi32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\RenderLog.pdb" /machine:X64 /nodefaultlib /out:"$(OUTDIR)\RenderLog.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\RenderLog.obj" \
+	"$(INTDIR)\RenderLog.res"
+
+"$(OUTDIR)\RenderLog.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "RenderLog - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\RenderLog.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\RenderLog.obj"
+	-@erase "$(INTDIR)\RenderLog.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\RenderLog.exe"
+	-@erase "$(OUTDIR)\RenderLog.ilk"
+	-@erase "$(OUTDIR)\RenderLog.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /Gm /GX /Zi /Od /I "..\..\..\..\..\include" /I "..\..\BaseClasses" /D "_WINDOWS" /D "_MBCS" /D "_DEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\RenderLog.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\RenderLog.res" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\RenderLog.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=msvcrtd.lib dxerr9.lib quartz.lib winmm.lib msacm32.lib olepro32.lib strmiids.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib ole32.lib oleaut32.lib advapi32.lib uuid.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\RenderLog.pdb" /debug /machine:X64 /nodefaultlib /out:"$(OUTDIR)\RenderLog.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\RenderLog.obj" \
+	"$(INTDIR)\RenderLog.res"
+
+"$(OUTDIR)\RenderLog.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("RenderLog.dep")
+!INCLUDE "RenderLog.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "RenderLog.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "RenderLog - Win64 Release" || "$(CFG)" == "RenderLog - Win64 Debug" || "$(CFG)" == "RenderLog - Win64 Release Unicode" || "$(CFG)" == "RenderLog - Win64 Debug Unicode"
+SOURCE=.\RenderLog.cpp
+
+"$(INTDIR)\RenderLog.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\RenderLog.rc
+
+"$(INTDIR)\RenderLog.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+
+

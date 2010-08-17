@@ -1,0 +1,476 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on PlayDMO.dsp
+!IF "$(CFG)" == ""
+CFG=PlayDMO - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to PlayDMO - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "PlayDMO - Win64 Release" && "$(CFG)" != "PlayDMO - Win64 Debug" && "$(CFG)" != "PlayDMO - Win64 Release Unicode" && "$(CFG)" != "PlayDMO - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "PlayDMO.mak" CFG="PlayDMO - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "PlayDMO - Win64 Release" (based on "Win64 (X64) Application")
+!MESSAGE "PlayDMO - Win64 Debug" (based on "Win64 (X64) Application")
+!MESSAGE "PlayDMO - Win64 Release Unicode" (based on "Win64 (X64) Application")
+!MESSAGE "PlayDMO - Win64 Debug Unicode" (based on "Win64 (X64) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "PlayDMO - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDMO.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\dshowutil.obj"
+	-@erase "$(INTDIR)\mfcdmoutil.obj"
+	-@erase "$(INTDIR)\mfcutil.obj"
+	-@erase "$(INTDIR)\namedguid.obj"
+	-@erase "$(INTDIR)\PlayDMO.obj"
+	-@erase "$(INTDIR)\PlayDMO.pch"
+	-@erase "$(INTDIR)\PlayDMO.res"
+	-@erase "$(INTDIR)\PlayDMODlg.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\PlayDMO.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MD /W4 /GX /O2 /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "WIN64" /D "NDEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\PlayDMO.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDMO.res" /d "NDEBUG" /d "_AFXDLL" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDMO.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=dmoguids.lib msdmo.lib ..\..\BaseClasses\Release\strmbase.lib strmiids.lib winmm.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\PlayDMO.pdb" /machine:X64 /nodefaultlib:"libcmt.lib" /out:"$(OUTDIR)\PlayDMO.exe" /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\dshowutil.obj" \
+	"$(INTDIR)\mfcdmoutil.obj" \
+	"$(INTDIR)\mfcutil.obj" \
+	"$(INTDIR)\namedguid.obj" \
+	"$(INTDIR)\PlayDMO.obj" \
+	"$(INTDIR)\PlayDMODlg.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\PlayDMO.res"
+
+"$(OUTDIR)\PlayDMO.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "PlayDMO - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDMO.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\dshowutil.obj"
+	-@erase "$(INTDIR)\mfcdmoutil.obj"
+	-@erase "$(INTDIR)\mfcutil.obj"
+	-@erase "$(INTDIR)\namedguid.obj"
+	-@erase "$(INTDIR)\PlayDMO.obj"
+	-@erase "$(INTDIR)\PlayDMO.pch"
+	-@erase "$(INTDIR)\PlayDMO.res"
+	-@erase "$(INTDIR)\PlayDMODlg.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\PlayDMO.exe"
+	-@erase "$(OUTDIR)\PlayDMO.ilk"
+	-@erase "$(OUTDIR)\PlayDMO.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MDd /W4 /Gm /GX /ZI /Od /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "WIN64" /D "_DEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\PlayDMO.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDMO.res" /d "_DEBUG" /d "_AFXDLL" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDMO.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=dmoguids.lib msdmo.lib ..\..\BaseClasses\Debug\strmbasd.lib strmiids.lib winmm.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\PlayDMO.pdb" /debug /machine:X64 /nodefaultlib:"libcmtd.lib" /out:"$(OUTDIR)\PlayDMO.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\dshowutil.obj" \
+	"$(INTDIR)\mfcdmoutil.obj" \
+	"$(INTDIR)\mfcutil.obj" \
+	"$(INTDIR)\namedguid.obj" \
+	"$(INTDIR)\PlayDMO.obj" \
+	"$(INTDIR)\PlayDMODlg.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\PlayDMO.res"
+
+"$(OUTDIR)\PlayDMO.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "PlayDMO - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDMO.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\dshowutil.obj"
+	-@erase "$(INTDIR)\mfcdmoutil.obj"
+	-@erase "$(INTDIR)\mfcutil.obj"
+	-@erase "$(INTDIR)\namedguid.obj"
+	-@erase "$(INTDIR)\PlayDMO.obj"
+	-@erase "$(INTDIR)\PlayDMO.pch"
+	-@erase "$(INTDIR)\PlayDMO.res"
+	-@erase "$(INTDIR)\PlayDMODlg.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(OUTDIR)\PlayDMO.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MD /W4 /GX /O2 /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "NDEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\PlayDMO.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDMO.res" /d "NDEBUG" /d "_AFXDLL" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDMO.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\Release_unicode\strmbase.lib strmiids.lib dmoguids.lib msdmo.lib winmm.lib /nologo /stack:0x200000,0x200000 /entry:"wWinMainCRTStartup" /subsystem:windows /incremental:no /pdb:"$(OUTDIR)\PlayDMO.pdb" /machine:X64 /nodefaultlib:"libcmt.lib" /out:"$(OUTDIR)\PlayDMO.exe" /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\dshowutil.obj" \
+	"$(INTDIR)\mfcdmoutil.obj" \
+	"$(INTDIR)\mfcutil.obj" \
+	"$(INTDIR)\namedguid.obj" \
+	"$(INTDIR)\PlayDMO.obj" \
+	"$(INTDIR)\PlayDMODlg.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\PlayDMO.res"
+
+"$(OUTDIR)\PlayDMO.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "PlayDMO - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\PlayDMO.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\dshowutil.obj"
+	-@erase "$(INTDIR)\mfcdmoutil.obj"
+	-@erase "$(INTDIR)\mfcutil.obj"
+	-@erase "$(INTDIR)\namedguid.obj"
+	-@erase "$(INTDIR)\PlayDMO.obj"
+	-@erase "$(INTDIR)\PlayDMO.pch"
+	-@erase "$(INTDIR)\PlayDMO.res"
+	-@erase "$(INTDIR)\PlayDMODlg.obj"
+	-@erase "$(INTDIR)\StdAfx.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\PlayDMO.exe"
+	-@erase "$(OUTDIR)\PlayDMO.ilk"
+	-@erase "$(OUTDIR)\PlayDMO.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MDd /W4 /Gm /GX /ZI /Od /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "_DEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\PlayDMO.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\PlayDMO.res" /d "_DEBUG" /d "_AFXDLL" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\PlayDMO.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\BaseClasses\Debug_unicode\strmbasd.lib strmiids.lib dmoguids.lib msdmo.lib winmm.lib /nologo /stack:0x200000,0x200000 /entry:"wWinMainCRTStartup" /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\PlayDMO.pdb" /debug /machine:X64 /nodefaultlib:"libcmtd.lib" /out:"$(OUTDIR)\PlayDMO.exe" /pdbtype:sept /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\dshowutil.obj" \
+	"$(INTDIR)\mfcdmoutil.obj" \
+	"$(INTDIR)\mfcutil.obj" \
+	"$(INTDIR)\namedguid.obj" \
+	"$(INTDIR)\PlayDMO.obj" \
+	"$(INTDIR)\PlayDMODlg.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\PlayDMO.res"
+
+"$(OUTDIR)\PlayDMO.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("PlayDMO.dep")
+!INCLUDE "PlayDMO.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "PlayDMO.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "PlayDMO - Win64 Release" || "$(CFG)" == "PlayDMO - Win64 Debug" || "$(CFG)" == "PlayDMO - Win64 Release Unicode" || "$(CFG)" == "PlayDMO - Win64 Debug Unicode"
+SOURCE=..\..\Common\dshowutil.cpp
+
+"$(INTDIR)\dshowutil.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\PlayDMO.pch"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\..\Common\mfcdmoutil.cpp
+
+"$(INTDIR)\mfcdmoutil.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\PlayDMO.pch"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\..\Common\mfcutil.cpp
+
+"$(INTDIR)\mfcutil.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\PlayDMO.pch"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\..\Common\namedguid.cpp
+
+"$(INTDIR)\namedguid.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\PlayDMO.pch"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=.\PlayDMO.cpp
+
+"$(INTDIR)\PlayDMO.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\PlayDMO.pch"
+
+
+SOURCE=.\PlayDMODlg.cpp
+
+"$(INTDIR)\PlayDMODlg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\PlayDMO.pch"
+
+
+SOURCE=.\StdAfx.cpp
+
+!IF  "$(CFG)" == "PlayDMO - Win64 Release"
+
+CPP_SWITCHES=/nologo /MD /W4 /GX /O2 /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "WIN64" /D "NDEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\PlayDMO.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\PlayDMO.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "PlayDMO - Win64 Debug"
+
+CPP_SWITCHES=/nologo /MDd /W4 /Gm /GX /ZI /Od /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "WIN64" /D "_DEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\PlayDMO.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\PlayDMO.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "PlayDMO - Win64 Release Unicode"
+
+CPP_SWITCHES=/nologo /MD /W4 /GX /O2 /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "NDEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\PlayDMO.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\PlayDMO.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "PlayDMO - Win64 Debug Unicode"
+
+CPP_SWITCHES=/nologo /MDd /W4 /Gm /GX /ZI /Od /I "..\..\common" /I "..\..\..\..\include" /I "..\..\baseclasses" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "_DEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\PlayDMO.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\PlayDMO.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\PlayDMO.rc
+
+"$(INTDIR)\PlayDMO.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+
+

@@ -1,0 +1,373 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on DDrawXCL.dsp
+!IF "$(CFG)" == ""
+CFG=DDrawXCL - Win64 Debug
+!MESSAGE No configuration specified. Defaulting to DDrawXCL - Win64 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "DDrawXCL - Win64 Release" && "$(CFG)" != "DDrawXCL - Win64 Debug" && "$(CFG)" != "DDrawXCL - Win64 Release Unicode" && "$(CFG)" != "DDrawXCL - Win64 Debug Unicode"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "DDrawXCL.mak" CFG="DDrawXCL - Win64 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "DDrawXCL - Win64 Release" (based on "Win64 (X64) Application")
+!MESSAGE "DDrawXCL - Win64 Debug" (based on "Win64 (X64) Application")
+!MESSAGE "DDrawXCL - Win64 Release Unicode" (based on "Win64 (X64) Application")
+!MESSAGE "DDrawXCL - Win64 Debug Unicode" (based on "Win64 (X64) Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "DDrawXCL - Win64 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\DDrawXCL.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ddrawobj.obj"
+	-@erase "$(INTDIR)\DDrawXCL.obj"
+	-@erase "$(INTDIR)\DDrawXCL.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vidplay.obj"
+	-@erase "$(OUTDIR)\DDrawXCL.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D "_WINDOWS" /D "WIN64" /D "NDEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\DDrawXCL.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\DDrawXCL.res" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\DDrawXCL.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\release\strmbase.lib strmiids.lib quartz.lib kernel32.lib user32.lib comdlg32.lib ole32.lib oleaut32.lib gdi32.lib ddraw.lib msvcrt.lib uuid.lib advapi32.lib winmm.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /pdb:none /machine:X64 /nodefaultlib /out:"$(OUTDIR)\DDrawXCL.exe" /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\ddrawobj.obj" \
+	"$(INTDIR)\DDrawXCL.obj" \
+	"$(INTDIR)\vidplay.obj" \
+	"$(INTDIR)\DDrawXCL.res"
+
+"$(OUTDIR)\DDrawXCL.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "DDrawXCL - Win64 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\DDrawXCL.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ddrawobj.obj"
+	-@erase "$(INTDIR)\DDrawXCL.obj"
+	-@erase "$(INTDIR)\DDrawXCL.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vidplay.obj"
+	-@erase "$(OUTDIR)\DDrawXCL.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /GX /Zi /Od /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D "_WINDOWS" /D "DEBUG" /D "WIN64" /D "_DEBUG" /D _WIN32_WINNT=0x400 /Fp"$(INTDIR)\DDrawXCL.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\DDrawXCL.res" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\DDrawXCL.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\debug\strmbasd.lib strmiids.lib quartz.lib kernel32.lib user32.lib comdlg32.lib ole32.lib oleaut32.lib gdi32.lib ddraw.lib msvcrtd.lib uuid.lib advapi32.lib winmm.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /pdb:none /debug /machine:X64 /nodefaultlib /out:"$(OUTDIR)\DDrawXCL.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\ddrawobj.obj" \
+	"$(INTDIR)\DDrawXCL.obj" \
+	"$(INTDIR)\vidplay.obj" \
+	"$(INTDIR)\DDrawXCL.res"
+
+"$(OUTDIR)\DDrawXCL.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "DDrawXCL - Win64 Release Unicode"
+
+OUTDIR=.\Release_Unicode
+INTDIR=.\Release_Unicode
+# Begin Custom Macros
+OutDir=.\Release_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\DDrawXCL.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ddrawobj.obj"
+	-@erase "$(INTDIR)\DDrawXCL.obj"
+	-@erase "$(INTDIR)\DDrawXCL.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vidplay.obj"
+	-@erase "$(OUTDIR)\DDrawXCL.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MT /W4 /GX /O2 /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D "_WINDOWS" /D "NDEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\DDrawXCL.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\DDrawXCL.res" /d "NDEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\DDrawXCL.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\release_unicode\strmbase.lib strmiids.lib quartz.lib kernel32.lib user32.lib comdlg32.lib ole32.lib oleaut32.lib gdi32.lib ddraw.lib msvcrt.lib uuid.lib advapi32.lib winmm.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /pdb:none /machine:X64 /nodefaultlib /out:"$(OUTDIR)\DDrawXCL.exe" /OPT:NOREF /OPT:ICF /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\ddrawobj.obj" \
+	"$(INTDIR)\DDrawXCL.obj" \
+	"$(INTDIR)\vidplay.obj" \
+	"$(INTDIR)\DDrawXCL.res"
+
+"$(OUTDIR)\DDrawXCL.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "DDrawXCL - Win64 Debug Unicode"
+
+OUTDIR=.\Debug_Unicode
+INTDIR=.\Debug_Unicode
+# Begin Custom Macros
+OutDir=.\Debug_Unicode
+# End Custom Macros
+
+ALL : "$(OUTDIR)\DDrawXCL.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\ddrawobj.obj"
+	-@erase "$(INTDIR)\DDrawXCL.obj"
+	-@erase "$(INTDIR)\DDrawXCL.res"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vidplay.obj"
+	-@erase "$(OUTDIR)\DDrawXCL.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MTd /W4 /GX /Zi /Od /I "..\..\BaseClasses" /I "..\..\..\..\..\include" /D "_WINDOWS" /D "DEBUG" /D "_DEBUG" /D _WIN32_WINNT=0x400 /D "WIN64" /D "UNICODE" /D "_UNICODE" /Fp"$(INTDIR)\DDrawXCL.pch" /YX"streams.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win64 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\DDrawXCL.res" /d "_DEBUG" /d "WIN64" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\DDrawXCL.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=..\..\baseclasses\debug_unicode\strmbasd.lib strmiids.lib quartz.lib kernel32.lib user32.lib comdlg32.lib ole32.lib oleaut32.lib gdi32.lib ddraw.lib msvcrtd.lib uuid.lib advapi32.lib winmm.lib /nologo /stack:0x200000,0x200000 /subsystem:windows /pdb:none /debug /machine:X64 /nodefaultlib /out:"$(OUTDIR)\DDrawXCL.exe" /ignore:4089 /ignore:4078 
+LINK32_OBJS= \
+	"$(INTDIR)\ddrawobj.obj" \
+	"$(INTDIR)\DDrawXCL.obj" \
+	"$(INTDIR)\vidplay.obj" \
+	"$(INTDIR)\DDrawXCL.res"
+
+"$(OUTDIR)\DDrawXCL.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("DDrawXCL.dep")
+!INCLUDE "DDrawXCL.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "DDrawXCL.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "DDrawXCL - Win64 Release" || "$(CFG)" == "DDrawXCL - Win64 Debug" || "$(CFG)" == "DDrawXCL - Win64 Release Unicode" || "$(CFG)" == "DDrawXCL - Win64 Debug Unicode"
+SOURCE=.\ddrawobj.cpp
+
+"$(INTDIR)\ddrawobj.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\DDrawXCL.cpp
+
+"$(INTDIR)\DDrawXCL.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\vidplay.cpp
+
+"$(INTDIR)\vidplay.obj" : $(SOURCE) "$(INTDIR)"
+
+
+SOURCE=.\DDrawXCL.rc
+
+"$(INTDIR)\DDrawXCL.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) $(RSC_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+
+
