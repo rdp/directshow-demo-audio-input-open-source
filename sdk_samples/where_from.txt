@@ -1,0 +1,1 @@
+These are from installing the Microsoft SDK, then you navigate to its "Samples\multimedia\directshow" directory, and you'll find these.
