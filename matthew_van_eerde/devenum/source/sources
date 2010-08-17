@@ -1,0 +1,25 @@
+# sources
+TARGETTYPE = PROGRAM
+TARGETNAME = devenum
+UMTYPE = console
+UMENTRY = wmain
+USE_MSVCRT = 1
+
+C_DEFINES = $(C_DEFINES) -DUNICODE -D_UNICODE
+
+MSC_WARNING_LEVEL = /W4 /WX
+
+_NT_TARGET_VERSION = $(_NT_TARGET_VERSION_WINXP)
+
+SOURCES = \
+    cleanup.cpp \
+    initguid.cpp \
+    main.cpp \
+    devenum.cpp \
+
+INCLUDES = \
+    $(SDK_INC_PATH)\..\amovie\inc; \
+
+TARGETLIBS = \
+    $(SDK_LIB_PATH)\ole32.lib \
+    $(SDK_LIB_PATH)\oleaut32.lib \

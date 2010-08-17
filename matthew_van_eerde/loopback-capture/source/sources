@@ -1,0 +1,23 @@
+# sources
+TARGETTYPE=PROGRAM
+TARGETNAME=loopback-capture
+UMTYPE=console
+UMENTRY=wmain
+USE_MSVCRT=1
+
+MSC_WARNING_LEVEL = /W4 /WX
+
+C_DEFINES = $(C_DEFINES) -DUNICODE -D_UNICODE
+
+_NT_TARGET_VERSION=$(_NT_TARGET_VERSION_VISTA)
+
+SOURCES = \
+    guid.cpp \
+    main.cpp \
+    loopback-capture.cpp \
+    prefs.cpp \
+
+TARGETLIBS = \
+    $(SDK_LIB_PATH)\avrt.lib \
+    $(SDK_LIB_PATH)\ole32.lib \
+    $(SDK_LIB_PATH)\winmm.lib \

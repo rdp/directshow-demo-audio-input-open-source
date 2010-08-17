@@ -1,0 +1,23 @@
+# sources
+TARGETTYPE = PROGRAM
+TARGETNAME = acmenum
+UMTYPE = console
+UMENTRY = wmain
+USE_MSVCRT = 1
+
+C_DEFINES = $(C_DEFINES) -DUNICODE -D_UNICODE
+
+MSC_WARNING_LEVEL = /W4 /WX
+
+_NT_TARGET_VERSION = $(_NT_TARGET_VERSION_WINXP)
+
+SOURCES = \
+    acmenum.cpp \
+    details.cpp \
+    list.cpp \
+    main.cpp \
+
+TARGETLIBS = \
+    $(SDK_LIB_PATH)\ole32.lib \
+    $(SDK_LIB_PATH)\msacm32.lib \
+

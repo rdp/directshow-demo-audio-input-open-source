@@ -1,0 +1,23 @@
+# sources
+TARGETTYPE=PROGRAM
+TARGETNAME=silence
+UMTYPE=console
+UMENTRY=wmain
+USE_MSVCRT=1
+
+MSC_WARNING_LEVEL = /W4 /WX
+
+C_DEFINES = $(C_DEFINES) -DUNICODE -D_UNICODE
+
+_NT_TARGET_VERSION=$(_NT_TARGET_VERSION_VISTA)
+
+SOURCES = \
+    guid.cpp \
+    main.cpp \
+    prefs.cpp \
+    silence.cpp \
+    silence.rc \
+
+TARGETLIBS = \
+    $(SDK_LIB_PATH)\avrt.lib \
+    $(SDK_LIB_PATH)\ole32.lib \

@@ -1,0 +1,27 @@
+# sources for play-exclusive.exe
+
+TARGETTYPE = PROGRAM
+TARGETNAME = play-exclusive
+
+UMTYPE = console
+UMENTRY = wmain
+
+USE_MSVCRT = 1
+
+MSC_WARNING_LEVEL = /W4 /WX
+
+C_DEFINES = $(C_DEFINES) -DUNICODE -D_UNICODE
+
+# need Vista for MMDevAPI
+_NT_TARGET_VERSION = $(_NT_TARGET_VERSION_VISTA)
+
+SOURCES = \
+    guid.cpp \
+    main.cpp \
+    play.cpp \
+    prefs.cpp \
+
+TARGETLIBS = \
+    $(SDK_LIB_PATH)\avrt.lib \
+    $(SDK_LIB_PATH)\ole32.lib \
+    $(SDK_LIB_PATH)\winmm.lib \

@@ -1,4 +1,4 @@
-This repository has an actual working directshow audio input source filter.
+This repository has an actual working directshow audio input source filter (source is in "acam", solution is "virtual audio output replay.sln".
 
 Simplified examples like this were pretty hard to find online, and not even the MSDN SDK examples seemed to have any audio source examples.
 
