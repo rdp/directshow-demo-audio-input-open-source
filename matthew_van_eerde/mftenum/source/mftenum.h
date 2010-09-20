@@ -1,3 +1,0 @@
-// mftenum.h
-
-HRESULT EnumerateMFTs();

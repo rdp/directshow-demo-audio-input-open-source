@@ -1,3 +1,0 @@
-// apoenum.h
-
-HRESULT EnumerateAudioProcessingObjects();

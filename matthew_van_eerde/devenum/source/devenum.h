@@ -1,3 +1,0 @@
-// devenum.h
-
-HRESULT EnumerateDirectShowFilters();
