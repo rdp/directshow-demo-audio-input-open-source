@@ -18,4 +18,6 @@ Questions welcome, use github messaging.
 
 There are some other side-projects in other sub-folders within this project.  You can probably safely ignore them, stick with "virtual audio output replay.sln" and "acam/*"  
 
+vcam is a build of http://tmhare.mvps.org/downloads.htm capture source filter (desktop screen capture as a directshow input)
+
 -r
