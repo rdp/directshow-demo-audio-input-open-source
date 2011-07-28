@@ -41,7 +41,7 @@
     <ClCompile Include="Dll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Filters.cpp">
+    <ClCompile Include="Filters_vcam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
