@@ -60,9 +60,11 @@ public:
     HRESULT FillBuffer(IMediaSample *pms);
     HRESULT DecideBufferSize(IMemAllocator *pIMemAlloc, ALLOCATOR_PROPERTIES *pProperties);
     HRESULT CheckMediaType(const CMediaType *pMediaType);
-    HRESULT GetMediaType(int iPosition, CMediaType *pmt);
+    HRESULT GetMediaType(CMediaType *pmt);
     HRESULT SetMediaType(const CMediaType *pmt);
     HRESULT OnThreadCreate(void);
+
+    void SetCaptureRect(int x, int y, int w, int h, int fps); // mine
     
 private:
     CVCam *m_pParent;
@@ -70,6 +72,15 @@ private:
     HBITMAP m_hLogoBmp;
     CCritSec m_cSharedState;
     IReferenceClock *m_pClock;
+
+
+    BYTE *m_pDIBData;
+    HBITMAP m_hDIB;
+    HDC m_hDC, m_hDeskDC;
+    int m_x, m_y, m_w, m_h;
+
+    void MakeDIB();
+
 
 };
 

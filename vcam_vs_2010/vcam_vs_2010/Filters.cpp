@@ -44,9 +44,72 @@ HRESULT CVCam::QueryInterface(REFIID riid, void **ppv)
 CVCamStream::CVCamStream(HRESULT *phr, CVCam *pParent, LPCWSTR pPinName) :
     CSourceStream(NAME("Virtual Cam"),phr, pParent, pPinName), m_pParent(pParent)
 {
-    // Set the default media type as 320x240x24@15
-    GetMediaType(4, &m_mt);
+	// constructor I think...
+
+    m_hDeskDC = GetDC(GetDesktopWindow());
+    m_hDC = CreateCompatibleDC(0);
+    SetCaptureRect(0, 0, 30, 20, 30); // 30 fps
+
 }
+
+
+void CVCamStream::SetCaptureRect(int x, int y, int w, int h, int fps)
+{
+    if(IsConnected()) return;
+
+    m_x = x;
+    m_y = y;
+    m_w = w;
+    m_h = h;
+
+    // Measure how fast we can capture, at all...
+    DWORD tick = GetTickCount();
+    for(int i = 0; i < 5; ++i)
+    {
+        BitBlt(m_hDC, 0, 0, m_w, m_h, m_hDeskDC, m_x, m_y, SRCCOPY);
+    }
+    tick = GetTickCount() - tick;
+    tick /= 5;
+    tick += 10;
+
+    double actualFPS = 1000.0 / (double)tick;
+    if(fps < actualFPS) 
+        actualFPS = fps;
+
+    DECLARE_PTR(VIDEOINFOHEADER, pvi, m_mt.AllocFormatBuffer(sizeof(VIDEOINFOHEADER)));
+    ZeroMemory(pvi, sizeof(VIDEOINFOHEADER));
+
+    pvi->bmiHeader.biCompression = BI_RGB;
+    pvi->bmiHeader.biBitCount    = GetDeviceCaps(m_hDeskDC, BITSPIXEL);
+    pvi->bmiHeader.biSize       = sizeof(BITMAPINFOHEADER);
+    pvi->bmiHeader.biWidth      = m_w;
+    pvi->bmiHeader.biHeight     = m_h;
+    pvi->bmiHeader.biPlanes     = 1;
+    pvi->bmiHeader.biSizeImage  = GetBitmapSize(&pvi->bmiHeader);
+    pvi->bmiHeader.biClrImportant = 0;
+
+    pvi->AvgTimePerFrame = 10000000 / actualFPS;
+
+    SetRectEmpty(&(pvi->rcSource)); // we want the whole image area rendered.
+    SetRectEmpty(&(pvi->rcTarget)); // no particular destination rectangle
+
+    m_mt.SetType(&MEDIATYPE_Video);
+    m_mt.SetFormatType(&FORMAT_VideoInfo);
+    m_mt.SetTemporalCompression(FALSE);
+
+    // Work out the GUID for the subtype from the header info.
+    const GUID SubTypeGUID = GetBitmapSubtype(&pvi->bmiHeader);
+    m_mt.SetSubtype(&SubTypeGUID);
+    m_mt.SetSampleSize(pvi->bmiHeader.biSizeImage);
+} // SetCaptureRect
+
+// See Directshow help topic for IAMStreamConfig for details on this method
+HRESULT CVCamStream::GetMediaType(CMediaType *pmt)
+{
+    *pmt = m_mt;
+    return S_OK;
+} // GetMediaType
+
 
 CVCamStream::~CVCamStream()
 {
@@ -97,6 +160,7 @@ HRESULT CVCamStream::FillBuffer(IMediaSample *pms)
 //
 // Notify
 // Ignore quality management messages sent from the downstream filter
+// umm....isn't this a bit scary?
 STDMETHODIMP CVCamStream::Notify(IBaseFilter * pSender, Quality q)
 {
     return E_NOTIMPL;
@@ -112,47 +176,7 @@ HRESULT CVCamStream::SetMediaType(const CMediaType *pmt)
     return hr;
 }
 
-// See Directshow help topic for IAMStreamConfig for details on this method
-HRESULT CVCamStream::GetMediaType(int iPosition, CMediaType *pmt)
-{
-    if(iPosition < 0) return E_INVALIDARG;
-    if(iPosition > 8) return VFW_S_NO_MORE_ITEMS;
 
-    if(iPosition == 0) 
-    {
-        *pmt = m_mt;
-        return S_OK;
-    }
-
-    DECLARE_PTR(VIDEOINFOHEADER, pvi, pmt->AllocFormatBuffer(sizeof(VIDEOINFOHEADER)));
-    ZeroMemory(pvi, sizeof(VIDEOINFOHEADER));
-
-    pvi->bmiHeader.biCompression = BI_RGB;
-    pvi->bmiHeader.biBitCount    = 24;
-    pvi->bmiHeader.biSize       = sizeof(BITMAPINFOHEADER);
-    pvi->bmiHeader.biWidth      = 80 * iPosition;
-    pvi->bmiHeader.biHeight     = 60 * iPosition;
-    pvi->bmiHeader.biPlanes     = 1;
-    pvi->bmiHeader.biSizeImage  = GetBitmapSize(&pvi->bmiHeader);
-    pvi->bmiHeader.biClrImportant = 0;
-
-    pvi->AvgTimePerFrame = 1000000;
-
-    SetRectEmpty(&(pvi->rcSource)); // we want the whole image area rendered.
-    SetRectEmpty(&(pvi->rcTarget)); // no particular destination rectangle
-
-    pmt->SetType(&MEDIATYPE_Video);
-    pmt->SetFormatType(&FORMAT_VideoInfo);
-    pmt->SetTemporalCompression(FALSE);
-
-    // Work out the GUID for the subtype from the header info.
-    const GUID SubTypeGUID = GetBitmapSubtype(&pvi->bmiHeader);
-    pmt->SetSubtype(&SubTypeGUID);
-    pmt->SetSampleSize(pvi->bmiHeader.biSizeImage);
-    
-    return NOERROR;
-
-} // GetMediaType
 
 // This method is called to see if a given output format is supported
 HRESULT CVCamStream::CheckMediaType(const CMediaType *pMediaType)
