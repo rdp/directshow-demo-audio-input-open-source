@@ -16,8 +16,6 @@ I believe that synth cannot be used with VLC since it is "dynamic" and doesn't h
 Enjoy.
 Questions welcome, use github messaging.
 
-There are some other side-projects in other sub-folders within this project.  You can probably safely ignore them, stick with "virtual audio output replay.sln" and "acam/*"  
-
-vcam is a build of http://tmhare.mvps.org/downloads.htm capture source filter ("static" video directshow video output).  At that same url you can find a screen capture filter, as well.
+see also https://github.com/rdp/open-source-directshow-screen-capture-filter if you are looking for that or anything video related like it.
 
 -r
