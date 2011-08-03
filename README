@@ -1,4 +1,5 @@
 This repository has an actual working directshow audio input source filter (source is in "acam", solution is "virtual audio output replay.sln".
+It just plays static.
 
 Simplified examples like this were pretty hard to find online, and not even the MSDN SDK examples seemed to have any audio source examples.
 
@@ -10,12 +11,12 @@ It advertises and streams a single, 44100 khz "white noise" (well, randomly gene
 
 To see the code, open "virtual audio output replay.sln"
 
-For further exploration, I would recommend the directshow sample "synth" which shows you how to setup a dynamic source, and is more complex.
-I believe that synth cannot be used with VLC since it is "dynamic" and doesn't have GetStreamCaps, though I could be wrong about that.
+For further exploration, I would recommend the directshow samples "synth" project which shows you how to setup a dynamic source, and is more complex.
+"synth" doesn't show up as an inputs device by default, but you could combine it with this project to have it do so.
 
 Enjoy.
 Questions welcome, use github messaging.
 
-see also https://github.com/rdp/open-source-directshow-screen-capture-filter if you are looking for that or anything video related like it.
+see also https://github.com/rdp/open-source-directshow-screen-capture-filter if you are looking for that or anything video related for directshow sources.
 
 -r
