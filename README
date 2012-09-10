@@ -3,6 +3,8 @@ It just plays static.
 
 Simplified examples like this were pretty hard to find online, and not even the MSDN SDK examples seemed to have any audio source examples.
 
+UPDATE a more "full" example can also be found in my slightly more developed https://github.com/rdp/virtual-audio-capture-grabber-device
+
 This one works as an audio input source, in VLC, and in graphedit, etc.
 
 I took out all the threading constructs so that you can more easily tell what is going on.
